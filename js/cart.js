@@ -39,6 +39,10 @@ function showCart() {
 function removeItemFromCart(event) {
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
+    // we know the name and the quantity --> object
+    // we want to know the array position and what to remove
+    // event.target.name
+    // cart.removeItem(name)
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 
