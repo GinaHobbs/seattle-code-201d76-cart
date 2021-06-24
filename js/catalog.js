@@ -85,9 +85,10 @@ function updateCartPreview(event) {
   divElem.appendChild(nameElem);
   divElem.appendChild(quantityElem);
   
+  let imgPath = '';
   for (let product of Product.allProducts) {
     if (item === product.name) {
-      let imgPath = product.filePath;
+      imgPath = product.filePath;
     }
   }
   imgElem.src = imgPath;
