@@ -9,22 +9,35 @@ const Cart = function(items) {
 Cart.prototype.addItem = function(product, quantity) {
   // instatiate a cart item using the arguments from product and quantity
   let myNewCartItem = new CartItem(product, quantity);
+  console.log(myNewCartItem);
   // push into the items array
   this.items.push(myNewCartItem);
-
   // this.items.push(new CartItem(product, quantity));
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+   let stringifiedCartItems = JSON.stringify(this.items);
+   localStorage.setItem('items', stringifiedCartItems);
+   console.log(stringifiedCartItems);
+   // from busmall
+  //  let stringifiedProducts = JSON.stringify(Product.allProducts);
+  //  localStorage.setItem('products', stringifiedProducts);
 };
 
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
-  // explore some javascript methods like splice?
+  // we took in a name, and now we have to figure out the index and how many
+  for (i in this.items) {
+      //cthulu === object at that index/"i"-- name
+    if (item === this.items[i].product) {
+      this.items.splice(i, 1);
+    }
+  }
 };
 
+//CartItem constructor.
 const CartItem = function(product, quantity) {
   this.product = product;
   this.quantity = quantity;
@@ -63,3 +76,6 @@ function generateCatalog() {
 
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+// Cart.prototype.addItem(Product.allProducts[0], 1);
+// Cart.prototype.saveToLocalStorage();
+
